@@ -1,0 +1,7 @@
+langchain 
+flask 
+gunicorn
+langchain_community
+langchain_core
+requests
+mistralai
