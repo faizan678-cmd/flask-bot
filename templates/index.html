@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>AI Caption Generator — Free Viral Captions for Instagram, YouTube & More</title>
+<meta name="description" content="Generate viral AI-powered captions for Instagram, YouTube, TikTok and more. Free AI caption generator tool — just enter your topic and get scroll-stopping captions instantly.">
+<meta name="keywords" content="AI caption generator, Instagram captions, viral captions, free caption tool, social media captions, YouTube captions, TikTok captions, AI tool">
+<meta name="author" content="AI Caption Generator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aicaptiongenerator.com/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI Caption Generator — Free Viral Captions Instantly">
+<meta property="og:description" content="Turn any topic into scroll-stopping viral captions for Instagram, YouTube & TikTok using AI. 100% free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aicaptiongenerator.com/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Caption Generator — Free Viral Captions">
+<meta name="twitter:description" content="Generate scroll-stopping captions with AI. Free tool, instant results.">
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Caption Generator",
+  "description": "Free AI-powered tool to generate viral captions for Instagram, YouTube, TikTok and more.",
+  "applicationCategory": "SocialNetworkingApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #060612;
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --accent: #a259ff;
+  --accent2: #00d4ff;
+  --green: #25d366;
+  --text: #f0eeff;
+  --muted: rgba(240,238,255,0.45);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── animated bg ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 10%, rgba(162,89,255,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0,212,255,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: bgPulse 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes bgPulse {
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
+}
+
+/* ── layout wrapper ── */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 60px;
+  min-height: 100vh;
+}
+
+/* ── top donate banner ── */
+.top-donate {
+  width: 100%;
+  max-width: 680px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(37,211,102,0.07);
+  border: 1px solid rgba(37,211,102,0.2);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: rgba(240,238,255,0.75);
+  animation: fadeDown 0.6s both;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.top-donate a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.2s;
+}
+
+.top-donate a:hover { opacity: 0.8; }
+
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── nav tabs ── */
+.nav {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 5px;
+  animation: fadeDown 0.6s 0.1s both;
+}
+
+.nav-tab {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-align: center;
+}
+
+.nav-tab.active {
+  background: rgba(162,89,255,0.18);
+  color: var(--accent);
+  border: 1px solid rgba(162,89,255,0.3);
+}
+
+.nav-tab:hover:not(.active) {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+/* ── sections ── */
+.section { display: none; width: 100%; max-width: 680px; }
+.section.active { display: block; }
+
+/* ── card ── */
+.card {
+  background: var(--surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 36px 32px 30px;
+  position: relative;
+  animation: cardIn 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+@keyframes cardIn {
+  from { opacity:0; transform: translateY(28px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(162,89,255,0.3), transparent 50%, rgba(0,212,255,0.15));
+  z-index: -1;
+}
+
+/* ── badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(162,89,255,0.15);
+  border: 1px solid rgba(162,89,255,0.3);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 6px;
+  background: linear-gradient(120deg, #fff 30%, var(--accent) 70%, var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* ── label ── */
+.input-wrap { position: relative; }
+
+.input-wrap label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  resize: none;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  line-height: 1.6;
+}
+
+textarea::placeholder { color: rgba(255,255,255,0.22); }
+
+textarea:focus {
+  border-color: rgba(162,89,255,0.5);
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 0 0 3px rgba(162,89,255,0.1), 0 0 24px rgba(162,89,255,0.07);
+}
+
+.char-count {
+  position: absolute;
+  bottom: 11px;
+  right: 13px;
+  font-size: 11px;
+  color: var(--muted);
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+/* ── generate button ── */
+.btn-wrap { margin-top: 14px; }
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c3aed, #a259ff 50%, #00d4ff);
+  background-size: 200% 200%;
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.3s;
+  animation: gradShift 4s ease infinite;
+}
+
+@keyframes gradShift {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+  pointer-events: none;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(162,89,255,0.4), 0 2px 8px rgba(0,212,255,0.2);
+}
+
+button[type="submit"]:active { transform: translateY(0); }
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ── result ── */
+.result {
+  margin-top: 24px;
+  animation: resultIn 0.5s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+@keyframes resultIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.result-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 500;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: var(--accent2);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s, transform 0.15s;
+  width: auto;
+  margin-top: 0;
+}
+
+.copy-btn:hover {
+  background: rgba(0,212,255,0.18);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.result-body {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 14px;
+  padding: 18px 20px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* ── divider ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border) 40%, var(--border) 60%, transparent);
+  margin: 24px 0;
+}
+
+/* ── donate section in card ── */
+.donate-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.donate-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.donate-text strong { color: var(--text); font-weight: 500; }
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37,211,102,0.12);
+  border: 1px solid rgba(37,211,102,0.3);
+  color: var(--green);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  white-space: nowrap;
+  width: auto;
+  margin-top: 0;
+}
+
+.whatsapp-btn:hover {
+  background: rgba(37,211,102,0.22);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.2);
+}
+
+/* ── about section ── */
+.about-hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.about-hero h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 800;
+  background: linear-gradient(120deg, #fff 30%, var(--accent) 70%, var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.feature-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.feature-card:hover {
+  border-color: rgba(162,89,255,0.3);
+  background: rgba(162,89,255,0.05);
+}
+
+.feature-icon { font-size: 22px; margin-bottom: 8px; }
+
+.feature-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.feature-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.how-section h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.steps { display: flex; flex-direction: column; gap: 12px; }
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.step-text { font-size: 14px; color: var(--muted); line-height: 1.55; }
+.step-text strong { color: var(--text); }
+
+/* ── privacy section ── */
+.privacy-section h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(20px, 4vw, 26px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.privacy-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.privacy-block { margin-bottom: 22px; }
+
+.privacy-block h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.privacy-block p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ── footer ── */
+.footer {
+  width: 100%;
+  max-width: 680px;
+  margin-top: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(240,238,255,0.25);
+}
+
+/* ── particles ── */
+.particles { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(100vh) scale(0); opacity:0; }
+  10%  { opacity: 0.5; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(-10vh) scale(1); opacity:0; }
+}
+
+/* ── mobile ── */
+@media (max-width: 520px) {
+  .card { padding: 24px 18px 22px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .nav-tab { font-size: 12px; padding: 8px 6px; }
+  .donate-section { flex-direction: column; align-items: flex-start; }
+  .top-donate { font-size: 12px; padding: 8px 12px; }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<div class="page-wrap">
+
+  <!-- top donate banner -->
+  <div class="top-donate">
+    💜 This tool is free! If it helped you, please
+    <a href="https://wa.me/917889429723" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Donate &amp; Support Developer
+    </a>
+    🙏
+  </div>
+
+  <!-- nav -->
+  <nav class="nav" role="navigation" aria-label="Page sections">
+    <button class="nav-tab active" onclick="showSection('home', this)">⚡ Generator</button>
+    <button class="nav-tab" onclick="showSection('about', this)">💡 About</button>
+    <button class="nav-tab" onclick="showSection('privacy', this)">🔒 Privacy</button>
+  </nav>
+
+  <!-- ══ HOME ══ -->
+  <div class="section active" id="section-home">
+    <div class="card">
+      <div class="badge"><span>✦</span> Powered by AI</div>
+      <h1>AI Caption Generator</h1>
+      <p class="subtitle">Turn any topic into viral social media captions for Instagram, YouTube & TikTok — instantly.</p>
+
+      <form action="/ask" method="POST">
+        <div class="input-wrap">
+          <label for="topicInput">Your Topic</label>
+          <textarea
+            name="question"
+            id="topicInput"
+            placeholder="e.g. Fitness Motivation, Travel Vibes, Monday Mood..."
+            maxlength="300"
+            required></textarea>
+          <span class="char-count" id="charCount">0 / 300</span>
+        </div>
+        <div class="btn-wrap">
+          <button type="submit" id="genBtn">
+            <span style="margin-right:8px;font-size:18px;vertical-align:middle;">⚡</span> Generate Viral Captions
+          </button>
+        </div>
+      </form>
+
+      {% if answer %}
+      <div class="result">
+        <div class="result-header">
+          <span class="result-label">✦ Generated Captions</span>
+          <button class="copy-btn" onclick="copyResult()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy All
+          </button>
+        </div>
+        <div class="result-body" id="resultBody">{{ answer }}</div>
+      </div>
+      {% endif %}
+
+      <div class="divider"></div>
+
+      <div class="donate-section">
+        <div class="donate-text">
+          <strong>Find this useful?</strong><br>
+          Support the developer — every bit helps! 🙏
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/917889429723" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Donate via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT ══ -->
+  <div class="section" id="section-about">
+    <div class="card">
+      <div class="about-hero">
+        <div class="badge" style="margin-bottom:14px;"><span>💡</span> About This Tool</div>
+        <h2>What is AI Caption Generator?</h2>
+        <p>AI Caption Generator is a free, AI-powered tool that helps content creators, marketers, and social media enthusiasts generate high-quality, viral captions instantly. Just enter your topic — and let AI do the heavy lifting.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Results</h3>
+          <p>Get multiple caption ideas in seconds — no sign-up, no waiting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Multi-Platform</h3>
+          <p>Captions optimized for Instagram, TikTok, YouTube & Twitter.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Viral-Focused</h3>
+          <p>AI crafts captions designed to maximize engagement and reach.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🆓</div>
+          <h3>100% Free</h3>
+          <p>No subscription, no hidden fees. Built for creators by a creator.</p>
+        </div>
+      </div>
+
+      <div class="how-section">
+        <h3>How It Works</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Enter your topic</strong> — like "Fitness Motivation" or "Travel in Goa".</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Click Generate</strong> — our AI model instantly processes your input.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Copy & post</strong> — grab your favourite caption and go viral!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="donate-section">
+        <div class="donate-text">
+          <strong>Built with ❤️ by an indie developer.</strong><br>
+          If this tool saved your time, consider supporting!
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/917889429723" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Support Developer
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PRIVACY ══ -->
+  <div class="section" id="section-privacy">
+    <div class="card">
+      <div class="privacy-section">
+        <div class="badge" style="margin-bottom:14px;"><span>🔒</span> Privacy Policy</div>
+        <h2>Privacy Policy</h2>
+        <p class="privacy-meta">Last updated: June 2025 &nbsp;|&nbsp; Effective immediately</p>
+
+        <div class="privacy-block">
+          <h3>1. Information We Collect</h3>
+          <p>We only receive the text topic you type into the input field. We do not collect your name, email address, phone number, or any personally identifiable information. No account creation is required to use this tool.</p>
+        </div>
+
+        <div class="privacy-block">
+          <h3>2. How We Use Your Input</h3>
+          <p>Your input text is sent to an AI language model to generate captions. It is used solely to produce the output you requested. We do not store, sell, or share your input data with third parties for marketing or advertising purposes.</p>
+        </div>
+
+        <div class="privacy-block">
+          <h3>3. Cookies &amp; Tracking</h3>
+          <p>This tool does not use cookies, analytics trackers, or any third-party tracking scripts. Your browsing activity on this page is not monitored or logged.</p>
+        </div>
+
+        <div class="privacy-block">
+          <h3>4. Data Storage</h3>
+          <p>We do not store your generated captions or input history on our servers. Each session is independent — once you leave the page, no data is retained.</p>
+        </div>
+
+        <div class="privacy-block">
+          <h3>5. Third-Party Services</h3>
+          <p>This tool uses an AI API to process your requests. Please refer to the respective AI provider's privacy policy for information on how they handle API requests. We do not share identifiable user data with them.</p>
+        </div>
+
+        <div class="privacy-block">
+          <h3>6. Children's Privacy</h3>
+          <p>This tool is not directed at children under the age of 13. We do not knowingly collect any information from minors.</p>
+        </div>
+
+        <div class="privacy-block">
+          <h3>7. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy occasionally. Any changes will be reflected on this page with an updated date. Continued use of the tool after changes constitutes acceptance of the revised policy.</p>
+        </div>
+
+        <div class="privacy-block">
+          <h3>8. Contact</h3>
+          <p>If you have any questions or concerns about this Privacy Policy, you can reach the developer via WhatsApp: <a href="https://wa.me/917889429723" style="color:var(--accent);text-decoration:none;">+91 78894 29723</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 AI Caption Generator &nbsp;·&nbsp; Made with 💜 by an indie dev &nbsp;·&nbsp;
+    <a href="https://wa.me/917889429723" style="color:rgba(240,238,255,0.35);text-decoration:none;">Support</a>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<script>
+// ── tab switching ──
+function showSection(name, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('section-' + name).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── char counter ──
+const ta = document.getElementById('topicInput');
+const cc = document.getElementById('charCount');
+if (ta) {
+  ta.addEventListener('input', () => {
+    const len = ta.value.length;
+    cc.textContent = `${len} / 300`;
+    cc.style.color = len > 270 ? '#f87171' : 'var(--muted)';
+  });
+}
+
+// ── ripple ──
+const btn = document.getElementById('genBtn');
+if (btn) {
+  btn.addEventListener('click', function(e) {
+    const r = document.createElement('span');
+    r.className = 'ripple';
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+    this.appendChild(r);
+    setTimeout(() => r.remove(), 600);
+  });
+}
+
+// ── copy result ──
+function copyResult() {
+  const el = document.getElementById('resultBody');
+  if (!el) return;
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    const cb = document.querySelector('.copy-btn');
+    const orig = cb.innerHTML;
+    cb.innerHTML = '✓ Copied!';
+    cb.style.color = '#4ade80';
+    setTimeout(() => { cb.innerHTML = orig; cb.style.color = ''; }, 2000);
+  });
+}
+
+// ── particles ──
+const pc = document.getElementById('particles');
+const cols = ['#a259ff','#00d4ff','#ffffff'];
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.cssText = `
+    left:${Math.random()*100}%;
+    background:${cols[Math.floor(Math.random()*cols.length)]};
+    animation-duration:${7+Math.random()*10}s;
+    animation-delay:${Math.random()*9}s;
+    width:${1+Math.random()*2}px;
+    height:${1+Math.random()*2}px;
+  `;
+  pc.appendChild(p);
+}
+
+// ── if result exists, stay on home ──
+{% if answer %}
+// already on home, nothing needed
+{% endif %}
+</script>
+
+</body>
+</html>
